@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wrist Onn – Luxury Watches</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span>Wrist <span class="accent">Onn</span></span>
+      </div>
+
+      <nav class="nav-links">
+        <!-- Smooth scroll links -->
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#featured" class="nav-link">Featured</a>
+        <a href="#new-arrivals" class="nav-link">New Arrivals</a>
+        <a href="#trending" class="nav-link">Trending</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-login">Login</button>
+
+        <button class="cart-btn" aria-label="Cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+
+        <!-- Mobile menu toggle -->
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <main id="home">
+    <section class="hero">
+      <!-- Background video with fallback poster -->
+      <video
+        class="hero-video"
+        src="assets/hero-watch.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="assets/hero-fallback.jpg"
+      >
+        <!-- Fallback image if video cannot play -->
+        <img src="assets/hero-fallback.jpg" alt="Luxury watch background" />
+      </video>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="hero-kicker reveal">Premium Watch Boutique</p>
+        <h1 class="hero-title reveal">
+          Time That <span class="accent">Defines You</span>
+        </h1>
+        <p class="hero-subtitle reveal">
+          Premium watches for every moment – crafted with precision, built to
+          last, designed to stand out.
+        </p>
+
+        <div class="hero-actions reveal">
+          <button
+            class="btn btn-primary"
+            data-scroll-target="#shop"
+          >
+            Shop Now
+          </button>
+          <button
+            class="btn btn-ghost"
+            data-scroll-target="#featured"
+          >
+            Explore Collection
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SHOP (ANCHOR ONLY) ================= -->
+    <section id="shop" class="section spacer-small"></section>
+
+    <!-- ================= FEATURED ================= -->
+    <section id="featured" class="section section-dark">
+      <div class="section-header reveal">
+        <p class="section-kicker">Curated For You</p>
+        <h2 class="section-title">Featured Watches</h2>
+        <p class="section-subtitle">
+          Hand-picked pieces that define modern luxury and timeless elegance.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <article class="watch-card reveal">
+          <div class="badge badge-featured">Signature</div>
+          <div class="watch-image">
+            <img src="assets/watch-1.jpg" alt="Eclipse Chrono" />
+          </div>
+          <div class="watch-info">
+            <h3 class="watch-name">Eclipse Chrono</h3>
+            <p class="watch-price">$790</p>
+          </div>
+          <button class="btn btn-block btn-add add-to-cart">
+            Add to Cart
+          </button>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="watch-card reveal">
+          <div class="badge badge-featured">Limited</div>
+          <div class="watch-image">
+            <img src="assets/watch-2.jpg" alt="Noir Automatic" />
+          </div>
+          <div class="watch-info">
+            <h3 class="watch-name">Noir Automatic</h3>
+            <p class="watch-price">$1,120</p>
+          </div>
+          <button class="btn btn-block btn-add add-to-cart">
+            Add to Cart
+          </button>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="watch-card reveal">
+          <div class="badge badge-featured">Classic</div>
+          <div class="watch-image">
+            <img src="assets/watch-3.jpg" alt="Luna Heritage" />
+          </div>
+          <div class="watch-info">
+            <h3 class="watch-name">Luna Heritage</h3>
+            <p class="watch-price">$640</p>
+          </div>
+          <button class="btn btn-block btn-add add-to-cart">
+            Add to Cart
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= NEW ARRIVALS ================= -->
+    <section id="new-arrivals" class="section">
+      <div class="section-header reveal">
+        <p class="section-kicker">Just Landed</p>
+        <h2 class="section-title">New Arrivals</h2>
+        <p class="section-subtitle">
+          Fresh designs that blend contemporary minimalism with classic detail.
+        </p>
+      </div>
+
+      <!-- Horizontal scroll on small screens -->
+      <div class="horizontal-scroll">
+        <article class="arrival-card reveal">
+          <div class="arrival-badge">NEW</div>
+          <div class="watch-image">
+            <img src="assets/watch-4.jpg" alt="Aurora Steel" />
+          </div>
+          <div class="watch-info">
+            <h3 class="watch-name">Aurora Steel</h3>
+            <p class="watch-price">$520</p>
+          </div>
+          <button class="btn btn-block btn-add add-to-cart">
+            Add to Cart
+          </button>
+        </article>
+
+        <article class="arrival-card reveal">
+          <div class="arrival-badge">NEW</div>
+          <div class="watch-image">
+            <img src="assets/watch-5.jpg" alt="Vertex Rose" />
+          </div>
+          <div class="watch-info">
+            <h3 class="watch-name">Vertex Rose</h3>
+            <p class="watch-price">$880</p>
+          </div>
+          <button class="btn btn-block btn-add add-to-cart">
+            Add to Cart
+          </button>
+        </article>
+
+        <article class="arrival-card reveal">
+          <div class="arrival-badge">NEW</div>
+          <div class="watch-image">
+            <img src="assets/watch-6.jpg" alt="Atlas Dual-Tone" />
+          </div>
+          <div class="watch-info">
+            <h3 class="watch-name">Atlas Dual-Tone</h3>
+            <p class="watch-price">$960</p>
+          </div>
+          <button class="btn btn-block btn-add add-to-cart">
+            Add to Cart
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= TRENDING ================= -->
+    <section id="trending" class="section section-dark">
+      <div class="section-header reveal">
+        <p class="section-kicker">Best Sellers</p>
+        <h2 class="section-title">Trending Watches 🔥</h2>
+        <p class="section-subtitle">
+          Loved by our community, crafted to turn heads wherever you go.
+        </p>
+      </div>
+
+      <div class="trending-grid">
+        <article class="trending-card reveal">
+          <div class="trending-label">Trending 🔥</div>
+          <div class="watch-image">
+            <img src="assets/watch-7.jpg" alt="Carbon Night" />
+          </div>
+          <div class="watch-info">
+            <h3 class="watch-name">Carbon Night</h3>
+            <p class="watch-price">$1,050</p>
+            <div class="rating">
+              <span>★★★★★</span>
+              <span class="rating-count">(241)</span>
+            </div>
+          </div>
+          <button class="btn btn-block btn-add add-to-cart">
+            Add to Cart
+          </button>
+        </article>
+
+        <article class="trending-card reveal">
+          <div class="trending-label">Trending 🔥</div>
+          <div class="watch-image">
+            <img src="assets/watch-8.jpg" alt="Ivory Classic" />
+          </div>
+          <div class="watch-info">
+            <h3 class="watch-name">Ivory Classic</h3>
+            <p class="watch-price">$730</p>
+            <div class="rating">
+              <span>★★★★☆</span>
+              <span class="rating-count">(189)</span>
+            </div>
+          </div>
+          <button class="btn btn-block btn-add add-to-cart">
+            Add to Cart
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT CORNER ================= -->
+    <section id="about" class="section about-corner">
+      <div class="about-media reveal">
+        <div class="about-image-frame">
+          <img src="assets/about-watch.jpg" alt="Watch craftsmanship" />
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <p class="section-kicker">About Wrist Onn</p>
+        <h2 class="section-title">Crafted For Every Second</h2>
+        <p class="about-text">
+          Wrist Onn blends craftsmanship, precision, and style to create
+          watches that elevate every second. From sapphire crystal glass to
+          Swiss-inspired movements, each piece is engineered for those who
+          value both time and the stories it tells.
+        </p>
+        <p class="about-text">
+          Our philosophy is simple: luxury should feel effortless, look
+          timeless, and perform flawlessly – whether you are in a boardroom,
+          in transit, or out after dark.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Wrist <span class="accent">Onn</span></div>
+        <p class="footer-tagline">
+          Timepieces that define presence, precision, and personality.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#shop">Shop</a>
+        <a href="#featured">Featured</a>
+        <a href="#new-arrivals">New Arrivals</a>
+        <a href="#trending">Trending</a>
+        <a href="#about">About</a>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow</h4>
+        <!-- These can later be replaced with real links/icons -->
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">X</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Wrist Onn. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
