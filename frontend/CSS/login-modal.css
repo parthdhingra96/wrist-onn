@@ -1,0 +1,430 @@
+/* =========================================
+   Login Modal – Wrist Onn Luxury Theme
+   Dark luxury + glassmorphism
+   ========================================= */
+
+:root {
+  --modal-accent: #d4a84b;
+  --modal-accent-glow: rgba(212, 168, 75, 0.5);
+  --modal-accent-strong: #e8c266;
+  --modal-overlay: rgba(0, 0, 0, 0.72);
+  --modal-glass: rgba(12, 14, 20, 0.65);
+  --modal-glass-border: rgba(255, 255, 255, 0.08);
+  --modal-text: #f5f5f5;
+  --modal-text-muted: #9a9ea8;
+  --modal-input-bg: rgba(0, 0, 0, 0.35);
+  --modal-input-border: rgba(255, 255, 255, 0.12);
+  --modal-transition: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --modal-blur: 8px;
+}
+
+/* =================
+   Body lock & hero video blur
+   ================= */
+
+body.modal-active {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* Smooth blur on hero video when modal opens */
+.hero-video {
+  transition: filter 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.modal-active .hero-video {
+  filter: saturate(1.1) contrast(1.15) blur(var(--modal-blur));
+}
+
+/* =================
+   Overlay
+   ================= */
+
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: transparent;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.4s step-end,
+    background  0.4s ease;
+}
+
+.login-modal-overlay.modal-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  background: var(--modal-overlay);
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s step-end,
+    background 0.4s ease;
+}
+
+/* =================
+   Modal container
+   ================= */
+
+.login-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  padding: 2.25rem 2rem;
+  background: var(--modal-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--modal-glass-border);
+  border-radius: 24px;
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 0 80px rgba(212, 168, 75, 0.08);
+  transform: scale(0.92);
+  opacity: 0;
+  transition:
+    transform var(--modal-transition),
+    opacity 0.35s ease,
+    box-shadow 0.4s ease;
+}
+
+.login-modal-overlay.modal-visible .login-modal {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 120px rgba(212, 168, 75, 0.12);
+}
+
+/* =================
+   Close button
+   ================= */
+
+.login-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--modal-text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.login-modal-close:hover {
+  color: var(--modal-accent-strong);
+  border-color: rgba(212, 168, 75, 0.4);
+  background: rgba(212, 168, 75, 0.08);
+  transform: scale(1.05);
+}
+
+.login-modal-close:focus-visible {
+  outline: 2px solid var(--modal-accent);
+  outline-offset: 2px;
+}
+
+/* =================
+   Brand & heading
+   ================= */
+
+.login-modal-brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.login-modal-brand .accent {
+  color: var(--modal-accent);
+}
+
+.login-modal-heading {
+  font-size: 1.65rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.75rem;
+  color: var(--modal-text);
+}
+
+/* =================
+   Form
+   ================= */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--modal-text-muted);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  color: var(--modal-text);
+  background: var(--modal-input-bg);
+  border: 1px solid var(--modal-input-border);
+  border-radius: 12px;
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.form-group input::placeholder {
+  color: rgba(154, 158, 168, 0.6);
+}
+
+.form-group input:focus {
+  border-color: rgba(212, 168, 75, 0.5);
+  box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.12);
+}
+
+.form-group input.input-error {
+  border-color: rgba(220, 80, 80, 0.6);
+  box-shadow: 0 0 0 3px rgba(220, 80, 80, 0.1);
+}
+
+.form-error {
+  font-size: 0.75rem;
+  color: #e07a7a;
+  min-height: 1.1em;
+}
+
+/* Password wrapper */
+.password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrap input {
+  padding-right: 4.5rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--modal-text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: var(--modal-accent-strong);
+}
+
+.password-toggle .icon-hide {
+  display: none;
+}
+
+.password-wrap.password-visible .icon-show {
+  display: none;
+}
+
+.password-wrap.password-visible .icon-hide {
+  display: inline;
+}
+
+/* Form row: Remember me + Forgot password */
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--modal-text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: 1px solid var(--modal-input-border);
+  border-radius: 4px;
+  background: var(--modal-input-bg);
+  transition: all 0.2s ease;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+  background: linear-gradient(135deg, var(--modal-accent), var(--modal-accent-strong));
+  border-color: var(--modal-accent);
+  box-shadow: 0 0 12px var(--modal-accent-glow);
+}
+
+.checkbox-input:focus-visible + .checkbox-custom {
+  outline: 2px solid var(--modal-accent);
+  outline-offset: 2px;
+}
+
+.checkbox-label:hover .checkbox-custom {
+  border-color: rgba(212, 168, 75, 0.5);
+}
+
+.forgot-link {
+  font-size: 0.82rem;
+  color: var(--modal-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: var(--modal-accent-strong);
+}
+
+/* =================
+   Submit button
+   ================= */
+
+.btn-login-submit {
+  margin-top: 0.5rem;
+  padding: 0.95rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #0d0e12;
+  background: linear-gradient(135deg, var(--modal-accent), var(--modal-accent-strong));
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.35s ease,
+    background 0.25s ease;
+}
+
+.btn-login-submit:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.5),
+    0 0 40px var(--modal-accent-glow),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.btn-login-submit:active {
+  transform: translateY(0);
+}
+
+.btn-login-submit:focus-visible {
+  outline: 2px solid var(--modal-accent);
+  outline-offset: 3px;
+}
+
+/* =================
+   Sign up link
+   ================= */
+
+.login-signup {
+  margin: 1.25rem 0 0;
+  font-size: 0.88rem;
+  color: var(--modal-text-muted);
+  text-align: center;
+}
+
+.signup-link {
+  color: var(--modal-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.signup-link:hover {
+  color: var(--modal-accent-strong);
+}
+
+/* =================
+   Responsive
+   ================= */
+
+/* @media (max-width: 480px) {
+  .login-modal-overlay {
+    padding: 1rem;
+    align-items: flex-end;
+  }
+
+  .login-modal {
+    max-height: 90vh;
+    padding: 1.75rem 1.5rem;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .login-modal-close {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .login-modal-heading {
+    font-size: 1.4rem;
+  }
+
+  .form-group input {
+    padding: 0.75rem 1rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+} */

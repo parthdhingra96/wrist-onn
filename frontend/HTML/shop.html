@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop – Wrist Onn Luxury Watches</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+  <style>
+    :root {
+  --modal-accent: #d4a84b;
+  --modal-accent-glow: rgba(212, 168, 75, 0.5);
+  --modal-accent-strong: #e8c266;
+  --modal-overlay: rgba(0, 0, 0, 0.72);
+  --modal-glass: rgba(12, 14, 20, 0.65);
+  --modal-glass-border: rgba(255, 255, 255, 0.08);
+  --modal-text: #f5f5f5;
+  --modal-text-muted: #9a9ea8;
+  --modal-input-bg: rgba(0, 0, 0, 0.35);
+  --modal-input-border: rgba(255, 255, 255, 0.12);
+  --modal-transition: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --modal-blur: 8px;
+}
+
+/* ================= Base ================= */
+
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, sans-serif;
+  background: #0d0e12;
+  color: var(--modal-text);
+}
+
+/* ================= Overlay ================= */
+
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--modal-overlay);
+}
+
+/* ================= Modal ================= */
+
+.login-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 2.25rem 2rem;
+  background: var(--modal-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--modal-glass-border);
+  border-radius: 24px;
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 0 80px rgba(212, 168, 75, 0.08);
+}
+
+/* ================= Close Button ================= */
+
+.login-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--modal-text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.login-modal-close:hover {
+  color: var(--modal-accent-strong);
+  border-color: rgba(212, 168, 75, 0.4);
+  background: rgba(212, 168, 75, 0.08);
+}
+
+/* ================= Brand & Heading ================= */
+
+.login-modal-brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.login-modal-brand .accent {
+  color: var(--modal-accent);
+}
+
+.login-modal-heading {
+  font-size: 1.65rem;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+}
+
+/* ================= Form ================= */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--modal-text-muted);
+}
+
+.form-group input {
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  color: var(--modal-text);
+  background: var(--modal-input-bg);
+  border: 1px solid var(--modal-input-border);
+  border-radius: 12px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: rgba(212, 168, 75, 0.5);
+  box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.12);
+}
+
+.form-error {
+  font-size: 0.75rem;
+  color: #e07a7a;
+}
+
+/* ================= Password ================= */
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 4.5rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--modal-text-muted);
+  cursor: pointer;
+}
+
+/* ================= Remember + Forgot ================= */
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--modal-text-muted);
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--modal-input-bg);
+  border: 1px solid var(--modal-input-border);
+}
+
+.checkbox-input:checked + .checkbox-custom {
+  background: linear-gradient(
+    135deg,
+    var(--modal-accent),
+    var(--modal-accent-strong)
+  );
+}
+
+.forgot-link {
+  font-size: 0.82rem;
+  color: var(--modal-text-muted);
+  text-decoration: none;
+}
+
+/* ================= Button ================= */
+
+.btn-login-submit {
+  margin-top: 0.5rem;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--modal-accent),
+    var(--modal-accent-strong)
+  );
+  border: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0d0e12;
+}
+
+/* ================= Signup ================= */
+
+.login-signup {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--modal-text-muted);
+}
+
+.signup-link {
+  color: var(--modal-accent);
+  text-decoration: none;
+}
+
+  </style>
+  <body class="theme-dark">
+    <!-- Navbar -->
+    <header id="navbar-container"></header>
+
+    <main class="shop-main">
+      <!-- Hero / Banner -->
+      <section class="hero hero-shop">
+        <div class="hero-overlay"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="hero-kicker">Wrist Onn Boutique</p>
+            <h1 class="hero-title">Explore Timeless Luxury</h1>
+            <p class="hero-subtitle">
+              Crafted for <span class="accent">Men</span>,
+              <span class="accent">Women</span> &amp;
+              <span class="accent">Kids</span>. Discover curated collections
+              designed to elevate every second.
+            </p>
+          </div>
+          <div class="hero-meta hero-meta-shop">
+            <span>Free global shipping over $500</span>
+            <span>5-year international warranty</span>
+            <span>Certified authenticity</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Tabs -->
+      <section class="section section-padded shop-section">
+        <div class="section-header">
+          <p class="section-kicker">Collections</p>
+          <h2 class="section-title">Crafted For Every Wrist</h2>
+        </div>
+
+        <div class="category-tabs" id="category-tabs">
+          <button class="tab-btn active" data-category="men">Men</button>
+          <button class="tab-btn" data-category="women">Women</button>
+          <button class="tab-btn" data-category="kids">Kids</button>
+          <div class="tab-pill" id="tab-pill"></div>
+        </div>
+
+        <!-- Category Content -->
+        <div id="category-content" class="category-content">
+          <!-- Sections dynamically injected: Trending, New Arrivals, Featured -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <aside id="cart-drawer-root"></aside>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/shop.js"></script>
+  </body>
+</html>
+

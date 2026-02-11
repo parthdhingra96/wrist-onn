@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wrist Onn – Luxury Watches</title>
-  <link rel="stylesheet" href="style.css" />
+   <link rel="stylesheet" href="./CSS/style.css" />
+  <!-- <link rel="stylesheet" href="./CSS/login-modal.css" /> -->
 </head>
 <body>
   <!-- ================= NAVBAR ================= -->
@@ -17,7 +18,7 @@
       <nav class="nav-links">
         <!-- Smooth scroll links -->
         <a href="#home" class="nav-link active">Home</a>
-        <a href="#shop" class="nav-link">Shop</a>
+        <a href="./HTML/shop.html" class="nav-link">Shop</a>
         <a href="#featured" class="nav-link">Featured</a>
         <a href="#new-arrivals" class="nav-link">New Arrivals</a>
         <a href="#trending" class="nav-link">Trending</a>
@@ -25,7 +26,9 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="btn btn-outline btn-login">Login</button>
+        <div class="btn btn-outline btn-login" id="login">
+          <a href="./HTML/Login.html" target="_blank" rel="noopener noreferrer">Login</a>
+        </div>
 
         <button class="cart-btn" aria-label="Cart">
           <span class="cart-icon">🛒</span>
@@ -44,18 +47,10 @@
   <main id="home">
     <section class="hero">
       <!-- Background video with fallback poster -->
-      <video
-        class="hero-video"
-        src="assets/hero-watch.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster="assets/hero-fallback.jpg"
-      >
-        <!-- Fallback image if video cannot play -->
-        <img src="assets/hero-fallback.jpg" alt="Luxury watch background" />
-      </video>
+      <video class="hero-video" autoplay muted loop playsinline poster="./assets/100.png">
+        <source src="./assets/watch-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+       </video>
 
       <div class="hero-overlay"></div>
 
@@ -70,18 +65,12 @@
         </p>
 
         <div class="hero-actions reveal">
-          <button
-            class="btn btn-primary"
-            data-scroll-target="#shop"
-          >
+          <a href="./HTML/shop.html" class="btn btn-primary">
             Shop Now
-          </button>
-          <button
-            class="btn btn-ghost"
-            data-scroll-target="#featured"
-          >
-            Explore Collection
-          </button>
+          </a>
+          <a href="#featured" class="btn btn-ghost">
+           Explore Collection
+           </a>
         </div>
       </div>
     </section>
@@ -104,11 +93,11 @@
         <article class="watch-card reveal">
           <div class="badge badge-featured">Signature</div>
           <div class="watch-image">
-            <img src="assets/watch-1.jpg" alt="Eclipse Chrono" />
+            <img src="./assets/2.webp" alt="Eclipse Chrono" />
           </div>
           <div class="watch-info">
             <h3 class="watch-name">Eclipse Chrono</h3>
-            <p class="watch-price">$790</p>
+            <p class="watch-price">Rs 2999</p>
           </div>
           <button class="btn btn-block btn-add add-to-cart">
             Add to Cart
@@ -119,11 +108,11 @@
         <article class="watch-card reveal">
           <div class="badge badge-featured">Limited</div>
           <div class="watch-image">
-            <img src="assets/watch-2.jpg" alt="Noir Automatic" />
+            <img src="./assets/3.webp" alt="Noir Automatic" />
           </div>
           <div class="watch-info">
             <h3 class="watch-name">Noir Automatic</h3>
-            <p class="watch-price">$1,120</p>
+            <p class="watch-price">Rs 3999</p>
           </div>
           <button class="btn btn-block btn-add add-to-cart">
             Add to Cart
@@ -134,11 +123,11 @@
         <article class="watch-card reveal">
           <div class="badge badge-featured">Classic</div>
           <div class="watch-image">
-            <img src="assets/watch-3.jpg" alt="Luna Heritage" />
+            <img src="./assets/5.webp" alt="Luna Heritage" />
           </div>
           <div class="watch-info">
             <h3 class="watch-name">Luna Heritage</h3>
-            <p class="watch-price">$640</p>
+            <p class="watch-price">RS 999</p>
           </div>
           <button class="btn btn-block btn-add add-to-cart">
             Add to Cart
@@ -162,11 +151,11 @@
         <article class="arrival-card reveal">
           <div class="arrival-badge">NEW</div>
           <div class="watch-image">
-            <img src="assets/watch-4.jpg" alt="Aurora Steel" />
+            <img src="./assets/6.webp" alt="Aurora Steel" />
           </div>
           <div class="watch-info">
             <h3 class="watch-name">Aurora Steel</h3>
-            <p class="watch-price">$520</p>
+            <p class="watch-price">RS 2250</p>
           </div>
           <button class="btn btn-block btn-add add-to-cart">
             Add to Cart
@@ -176,11 +165,11 @@
         <article class="arrival-card reveal">
           <div class="arrival-badge">NEW</div>
           <div class="watch-image">
-            <img src="assets/watch-5.jpg" alt="Vertex Rose" />
+            <img src="./assets/7.webp" alt="Vertex Rose" />
           </div>
           <div class="watch-info">
             <h3 class="watch-name">Vertex Rose</h3>
-            <p class="watch-price">$880</p>
+            <p class="watch-price">Rs 15000</p>
           </div>
           <button class="btn btn-block btn-add add-to-cart">
             Add to Cart
@@ -190,11 +179,11 @@
         <article class="arrival-card reveal">
           <div class="arrival-badge">NEW</div>
           <div class="watch-image">
-            <img src="assets/watch-6.jpg" alt="Atlas Dual-Tone" />
+            <img src="./assets/8.webp" alt="Atlas Dual-Tone" />
           </div>
           <div class="watch-info">
             <h3 class="watch-name">Atlas Dual-Tone</h3>
-            <p class="watch-price">$960</p>
+            <p class="watch-price">Rs 1999</p>
           </div>
           <button class="btn btn-block btn-add add-to-cart">
             Add to Cart
@@ -217,11 +206,11 @@
         <article class="trending-card reveal">
           <div class="trending-label">Trending 🔥</div>
           <div class="watch-image">
-            <img src="assets/watch-7.jpg" alt="Carbon Night" />
+            <img src="./assets/9.webp" alt="Carbon Night" />
           </div>
           <div class="watch-info">
             <h3 class="watch-name">Carbon Night</h3>
-            <p class="watch-price">$1,050</p>
+            <p class="watch-price">Rs 10000</p>
             <div class="rating">
               <span>★★★★★</span>
               <span class="rating-count">(241)</span>
@@ -235,11 +224,11 @@
         <article class="trending-card reveal">
           <div class="trending-label">Trending 🔥</div>
           <div class="watch-image">
-            <img src="assets/watch-8.jpg" alt="Ivory Classic" />
+            <img src="./assets/10.webp" alt="Ivory Classic" />
           </div>
           <div class="watch-info">
             <h3 class="watch-name">Ivory Classic</h3>
-            <p class="watch-price">$730</p>
+            <p class="watch-price">Rs 14000</p>
             <div class="rating">
               <span>★★★★☆</span>
               <span class="rating-count">(189)</span>
@@ -256,7 +245,7 @@
     <section id="about" class="section about-corner">
       <div class="about-media reveal">
         <div class="about-image-frame">
-          <img src="assets/about-watch.jpg" alt="Watch craftsmanship" />
+          <img src="./assets/about-watch.jpg" alt="Watch craftsmanship" />
         </div>
       </div>
       <div class="about-content reveal">
@@ -275,6 +264,9 @@
         </p>
       </div>
     </section>
+     <!-- <section id="login">
+         
+     </section> -->
   </main>
 
   <!-- ================= FOOTER ================= -->
@@ -310,7 +302,7 @@
       <span>© <span id="year"></span> Wrist Onn. All rights reserved.</span>
     </div>
   </footer>
-
-  <script src="script.js"></script>
+  <script src="./JS/script.js"></script>
+  <!-- <script src="login-modal.js"></script> -->
 </body>
 </html>

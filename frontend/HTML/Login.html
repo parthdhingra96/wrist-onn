@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+<style>
+   :root {
+  --modal-accent: #d4a84b;
+  --modal-accent-glow: rgba(212, 168, 75, 0.5);
+  --modal-accent-strong: #e8c266;
+  --modal-overlay: rgba(0, 0, 0, 0.72);
+  --modal-glass: rgba(12, 14, 20, 0.65);
+  --modal-glass-border: rgba(255, 255, 255, 0.08);
+  --modal-text: #f5f5f5;
+  --modal-text-muted: #9a9ea8;
+  --modal-input-bg: rgba(0, 0, 0, 0.35);
+  --modal-input-border: rgba(255, 255, 255, 0.12);
+  --modal-transition: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --modal-blur: 8px;
+}
+
+/* ================= Body ================= */
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0d0e12;
+  color: var(--modal-text);
+}
+
+/* ================= Overlay ================= */
+
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--modal-overlay);
+  z-index: 1000;
+}
+
+/* ================= Modal ================= */
+
+.login-modal {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.2rem;
+  background: var(--modal-glass);
+  backdrop-filter: blur(24px);
+  border-radius: 24px;
+  border: 1px solid var(--modal-glass-border);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+/* ================= Close Button ================= */
+
+.login-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--modal-text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* ================= Brand ================= */
+
+.login-modal-brand {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.login-modal-brand .accent {
+  color: var(--modal-accent);
+}
+
+/* ================= Heading ================= */
+
+.login-modal-heading {
+  font-size: 1.6rem;
+  margin: 0.6rem 0 1.8rem;
+}
+
+/* ================= Form ================= */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--modal-text-muted);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--modal-input-bg);
+  border: 1px solid var(--modal-input-border);
+  border-radius: 12px;
+  color: var(--modal-text);
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--modal-accent);
+  box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.15);
+}
+
+/* ================= Password ================= */
+
+.password-wrap {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--modal-text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+/* ================= Checkbox ================= */
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--modal-text-muted);
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  background: var(--modal-input-bg);
+  border: 1px solid var(--modal-input-border);
+  border-radius: 4px;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+  background: linear-gradient(
+    135deg,
+    var(--modal-accent),
+    var(--modal-accent-strong)
+  );
+}
+
+/* ================= Button ================= */
+
+.btn-login-submit {
+  margin-top: 0.6rem;
+  padding: 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--modal-accent),
+    var(--modal-accent-strong)
+  );
+  border: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================= Footer ================= */
+
+.login-signup {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--modal-text-muted);
+}
+
+.signup-link {
+  color: var(--modal-accent);
+  text-decoration: none;
+}
+
+</style>
+</head>
+    
+<body>
+    <div class="login-modal-overlay" id="login-modal-overlay" aria-hidden="true">
+    <div class="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
+      <button class="login-modal-close" type="button" aria-label="Close login modal">
+        <span aria-hidden="true">×</span>
+      </button>
+
+      <div class="login-modal-brand">Wrist <span class="accent">Onn</span></div>
+      <h2 id="login-modal-title" class="login-modal-heading">Welcome Back</h2>
+
+      <form class="login-form" id="login-form" novalidate>
+        <div class="form-group">
+          <label for="login-fullname">Full Name</label>
+          <input
+            type="text"
+            id="login-fullname"
+            name="fullname"
+            autocomplete="name"
+            placeholder="Enter your full name"
+            required
+          />
+          <span class="form-error" id="error-fullname"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="login-email">Email ID</label>
+          <input
+            type="email"
+            id="login-email"
+            name="email"
+            autocomplete="email"
+            placeholder="your@email.com"
+            required
+          />
+          <span class="form-error" id="error-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="password-wrap">
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              autocomplete="current-password"
+              placeholder="••••••••"
+              required
+            />
+            <button type="button" class="password-toggle" aria-label="Toggle password visibility" title="Show password">
+              <span class="icon-show">Show</span>
+              <span class="icon-hide">Hide</span>
+            </button>
+          </div>
+          <span class="form-error" id="error-password"></span>
+        </div>
+
+        <div class="form-row">
+          <label class="checkbox-label">
+            <input type="checkbox" name="remember" class="checkbox-input" />
+            <span class="checkbox-custom"></span>
+            Remember Me
+          </label>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-login-submit">Login</button>
+      </form>
+
+      <p class="login-signup">
+        Don't have an account? <a href="#" class="signup-link">Sign up</a>
+      </p>
+    </div>
+  </div>
+ 
+</body>
+</html>

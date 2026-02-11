@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wrist Onn – Luxury Timepieces</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+  <body class="theme-dark">
+    <!-- Navbar (loaded from component) -->
+    <header id="navbar-container"></header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero hero-home">
+        <div class="hero-media">
+          <video
+            class="hero-video"
+            src="assets/videos/hero-luxury.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="assets/images/hero-fallback.jpg"
+          >
+            <img
+              src="assets/images/hero-fallback.jpg"
+              alt="Luxury watch close-up"
+            />
+          </video>
+          <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+          <p class="hero-kicker">Wrist Onn</p>
+          <h1 class="hero-title">
+            Timepieces For
+            <span class="accent">Those Who Lead</span>
+          </h1>
+          <p class="hero-subtitle">
+            Discover a curated collection of luxury watches for men, women, and
+            kids – crafted for presence, precision, and timeless elegance.
+          </p>
+          <div class="hero-actions">
+            <button
+              class="btn btn-primary btn-lg"
+              id="shop-now-btn"
+              type="button"
+              data-scroll="#shop-section"
+            >
+              Shop Now
+            </button>
+            <button class="btn btn-ghost btn-lg" >
+              Explore Collection
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span>Swiss-inspired movements</span>
+            <span>5 ATM – 20 ATM water resistance</span>
+            <span>Sapphire crystal glass</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Highlights -->
+      <section id="highlights" class="section section-padded">
+        <div class="section-header">
+          <p class="section-kicker">Curated Luxury</p>
+          <h2 class="section-title">Signature Highlights</h2>
+          <p class="section-subtitle">
+            A glimpse of what awaits in our full collection – designed for men,
+            women, and young collectors.
+          </p>
+        </div>
+
+        <div class="highlight-grid">
+          <article class="highlight-card glass">
+            <div class="highlight-tag">Men</div>
+            <h3>Midnight Chronograph</h3>
+            <p>
+              A bold, matte-black chronograph with gold accents for commanding
+              boardrooms and late-night drives.
+            </p>
+            <span class="pill">Automatic • 10 ATM</span>
+          </article>
+
+          <article class="highlight-card glass">
+            <div class="highlight-tag">Women</div>
+            <h3>Rose Eclipse</h3>
+            <p>
+              A slender silhouette in rose gold with diamond-cut indices that
+              shimmer with every gesture.
+            </p>
+            <span class="pill">Quartz • Sapphire</span>
+          </article>
+
+          <article class="highlight-card glass">
+            <div class="highlight-tag">Kids</div>
+            <h3>Stellar Junior</h3>
+            <p>
+              Durable, lightweight, and playful – built to keep up with the
+              stories they will grow into.
+            </p>
+            <span class="pill">Quartz • 5 ATM</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- In-page Shop Section -->
+      <section
+        id="shop-section"
+        class="section section-padded shop-section shop-section-inline"
+      >
+        <div class="section-header">
+          <p class="section-kicker">Boutique</p>
+          <h2 class="section-title">Shop Wrist Onn Luxury</h2>
+          <p class="section-subtitle">
+            Choose a collection crafted for men, women, or young collectors, then
+            explore cinematic product galleries without ever leaving the page.
+          </p>
+        </div>
+
+        <!-- Category cards with imagery -->
+        <div class="shop-category-grid">
+          <article
+            class="category-card glass hover-lift active"
+            data-category="men"
+          >
+            <div class="category-card-media">
+              <img
+                src="assets/images/categories/men.jpg"
+                alt="Men's luxury watch collection"
+              />
+              <div class="category-card-glow"></div>
+            </div>
+            <div class="category-card-body">
+              <p class="category-label">Men Watches</p>
+              <h3 class="category-title">Power. Presence. Precision.</h3>
+              <p class="category-tagline">
+                Bold chronographs and divers engineered for those who lead.
+              </p>
+            </div>
+          </article>
+
+          <article class="category-card glass hover-lift" data-category="women">
+            <div class="category-card-media">
+              <img
+                src="assets/images/categories/women.jpg"
+                alt="Women's luxury watch collection"
+              />
+              <div class="category-card-glow"></div>
+            </div>
+            <div class="category-card-body">
+              <p class="category-label">Women Watches</p>
+              <h3 class="category-title">Elegance In Every Second.</h3>
+              <p class="category-tagline">
+                Slender silhouettes and jewel-like details for effortless luxury.
+              </p>
+            </div>
+          </article>
+
+          <article class="category-card glass hover-lift" data-category="kids">
+            <div class="category-card-media">
+              <img
+                src="assets/images/categories/kids.jpg"
+                alt="Kids colorful watch collection"
+              />
+              <div class="category-card-glow"></div>
+            </div>
+            <div class="category-card-body">
+              <p class="category-label">Kids Watches</p>
+              <h3 class="category-title">Playful. Durable. Memorable.</h3>
+              <p class="category-tagline">
+                Colorful, resilient designs built to keep up with every story.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Anchor for smooth scroll into products -->
+        <div id="shop-products-anchor"></div>
+
+        <!-- Category tabs (wired to JS) -->
+        <div class="category-tabs" id="category-tabs">
+          <button class="tab-btn active" data-category="men">Men</button>
+          <button class="tab-btn" data-category="women">Women</button>
+          <button class="tab-btn" data-category="kids">Kids</button>
+          <div class="tab-pill" id="tab-pill"></div>
+        </div>
+
+        <!-- Dynamic product sections: Trending, New Arrivals, Featured -->
+        <div id="category-content" class="category-content">
+          <!-- Product grids injected by shop.js -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart drawer (loaded from component) -->
+    <aside id="cart-drawer-root"></aside>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/shop.js"></script>
+  </body>
+</html>
+
