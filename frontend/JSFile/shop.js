@@ -1,8 +1,7 @@
 // shop.js
 // Shop page logic: category switching, dynamic product rendering, and cart wiring
 
-import { initCart, addToCart } from "./cart.js";
-
+import { initCart } from "./cart.js";
 const categories = {
   men: {
     trending: [

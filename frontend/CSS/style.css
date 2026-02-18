@@ -877,3 +877,33 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: flex-start;
   }
 }
+
+/* =========================================
+   Toast (Add to Cart) - top-right popup
+   Created dynamically via JS (.wo-toast)
+   ========================================= */
+
+.wo-toast {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(18, 18, 18, 0.92);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translate3d(22px, -10px, 0);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+}
+
+.wo-toast.wo-toast--show {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
